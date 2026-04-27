@@ -19,6 +19,7 @@
 | [`message`](./message) | 메시지 · 국제화 | MessageSource, messages.properties, LocaleResolver |
 | [`validation`](./validation) | 검증 | BindingResult, FieldError, Bean Validation, @Valid |
 | [`login`](./login) | 로그인 · 보안 | 쿠키/세션, 서블릿 필터, 스프링 인터셉터, ArgumentResolver |
+| [`exception`](./exception) | 예외 처리 | 서블릿 오류 처리, BasicErrorController, @ExceptionHandler, @ControllerAdvice |
 
 ## 디렉토리 구조
 
@@ -28,7 +29,8 @@ spring-mvc-2/
 ├── form/              # 타임리프 폼 처리
 ├── message/           # 메시지, 국제화
 ├── validation/        # 검증 (BindingResult, Bean Validation)
-└── login/             # 로그인, 필터, 인터셉터
+├── login/             # 로그인, 필터, 인터셉터
+└── exception/         # 예외 처리와 오류 페이지, API 예외 처리
 ```
 
 ## 학습 내용 요약
@@ -59,6 +61,13 @@ spring-mvc-2/
 - 서블릿 필터로 공통 관심사 처리
 - 스프링 인터셉터(`HandlerInterceptor`) 구현 및 적용
 - `ArgumentResolver`를 활용한 `@Login` 애노테이션 제작
+
+### Exception
+- 서블릿 예외 처리 흐름 (`Exception` 전파, `sendError`, WAS 재요청)
+- 스프링 부트 오류 페이지 자동화 (`BasicErrorController`, `/error`)
+- `HandlerExceptionResolver` 직접 구현 및 스프링 제공 구현체 활용
+- `@ExceptionHandler`로 컨트롤러 단위 API 예외 처리
+- `@ControllerAdvice`로 전역 예외 처리 분리
 
 ## 참고
 
